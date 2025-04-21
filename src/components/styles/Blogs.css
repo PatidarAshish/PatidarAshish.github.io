@@ -1,0 +1,210 @@
+/* Blogs Section */
+.blog-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    color: #000000;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #6dd5ed, #11738b);
+}
+
+/* Blogs Header Styling */
+.blog-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffde59;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+    z-index: 1;
+}
+
+/* Wrapper for buttons + scroll container */
+.blog-cards-wrapper {
+    position: relative;
+}
+
+/* Horizontal Scrolling Container */
+.blog-cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 2rem 40px 2rem 4rem;
+    margin-left: 4rem;
+    scroll-snap-type: x mandatory;
+    position: relative;
+    z-index: 1;
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+.blog-cards-container.fade-mask {
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Fade edges */
+.blog-cards-container::before,
+.blog-cards-container::after {
+    content: "";
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 0px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0));
+    z-index: 2;
+    pointer-events: none;
+    display: block;
+}
+
+.blog-cards-container::before {
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.blog-cards-container::after {
+    right: 0;
+}
+
+.blog-cards-container.fade-mask::before,
+.blog-cards-container.fade-mask::after {
+    display: none;
+}
+
+/* Scrollbar Styling */
+.blog-cards-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.blog-cards-container::-webkit-scrollbar-thumb {
+    background: #ffde59;
+    border-radius: 10px;
+}
+
+.blog-cards-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Blog Card Design */
+.blog-card {
+    flex: 0 0 auto;
+    width: 320px;
+    background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    scroll-snap-align: start;
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.25);
+    filter: brightness(1.05);
+}
+
+.blog-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.blog-card h2 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #333;
+}
+
+.blog-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #555;
+    line-height: 1.6;
+}
+
+/* Read Blog Button */
+.read-blog {
+    font-size: 1rem;
+    color: #333;
+    text-decoration: none;
+    border: 2px solid #ffde59;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    background: transparent;
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.read-blog:hover {
+    transform: translateY(-5px);
+    background: #ffde59;
+    color: #111;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    z-index: 2;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.scroll-btn-left {
+    left: 15px;
+}
+
+.scroll-btn-right {
+    right: 15px;
+}
+
+.scroll-btn:hover {
+    opacity: 1;
+}
+
+.scroll-btn-left:before {
+    content: '‹';
+}
+
+.scroll-btn-right:before {
+    content: '›';
+}
+
+.scroll-btn:focus {
+    opacity: 1;
+}
+
+.blog-cards-container:hover .scroll-btn {
+    opacity: 1;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .blog-cards-container {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-cards-container {
+        flex-wrap: nowrap;
+    }
+}

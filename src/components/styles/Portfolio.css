@@ -1,0 +1,205 @@
+/* Portfolio Section */
+.portfolio {
+    padding: 5rem 2rem;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(120deg, #008080, #04305c);
+}
+
+/* Portfolio Header Styling */
+.portfolio h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #ffa500;
+    font-weight: bold;
+    animation: fadeIn 1s ease-in-out;
+    z-index: 1;
+}
+
+/* Horizontal Scrolling Container */
+.project-cards-container {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to next line */
+    justify-content: flex-start; /* Align cards at the start */
+    overflow-x: auto;
+    gap: 2rem;
+    padding: 2rem 40px 2rem 4rem;
+    margin-left: 4rem;
+    scroll-snap-type: x mandatory;
+    position: relative;
+    z-index: 1;
+    mask-image: none;
+    -webkit-mask-image: none;
+}
+
+/* Adding a class for fade effect */
+.project-cards-container.fade-mask {
+    mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Fade Effect at Edges (positioning of the fade) */
+.project-cards-container::before,
+.project-cards-container::after {
+    content: "";
+    position: relative;
+    top: 0;
+    bottom: 0;
+    width: 0px; /* Adjust this to how much you want the fade effect */
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    z-index: 2;
+    pointer-events: none;
+    display: block; /* Hidden by default */
+}
+
+.project-cards-container::before {
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.project-cards-container::after {
+    right: 0;
+}
+
+.project-cards-container.fade-mask::before,
+.project-cards-container.fade-mask::after {
+    display: none; /* Only show when fade-mask class is applied */
+}
+
+/* Scrollbar Styling */
+.project-cards-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.project-cards-container::-webkit-scrollbar-thumb {
+    background: #ffa500;
+    border-radius: 10px;
+}
+
+.project-cards-container::-webkit-scrollbar-track {
+    background: #222;
+}
+
+/* Project Card Design */
+.project-card {
+    flex: 0 0 auto;
+    width: 320px;
+    background: linear-gradient(145deg, #222, #333);
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    scroll-snap-align: start;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 15px 50px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.1);
+}
+
+.project-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.project-card h2 {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-card p {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #bbb;
+    line-height: 1.6;
+}
+
+/* View Repo Button */
+.view-repo {
+    font-size: 1rem;
+    color: #fff;
+    text-decoration: none;
+    border: 2px solid #ffa500;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    background: transparent;
+    position: relative;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+
+.view-repo:hover {
+    transform: translateY(-5px);
+    background: #ffa500;
+    color: #111;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll Buttons */
+.scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    color: #fff;
+    border: none;
+    font-size: 2rem;
+    z-index: 2;
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+.scroll-btn-left {
+    left: 15px;
+}
+
+.scroll-btn-right {
+    right: 15px;
+}
+
+.scroll-btn:hover {
+    opacity: 1;
+}
+
+.scroll-btn-left:before {
+    content: '‹';
+}
+
+.scroll-btn-right:before {
+    content: '›';
+}
+
+.scroll-btn:focus {
+    opacity: 1;
+}
+
+.project-cards-container:hover .scroll-btn {
+    opacity: 1;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .project-cards-container {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-cards-container {
+        flex-wrap: nowrap; /* Ensure horizontal scroll even on small screens */
+    }
+}

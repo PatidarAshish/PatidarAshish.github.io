@@ -1,0 +1,247 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,
+  html {
+    font-family: 'Poppins', sans-serif;
+    background: #000;
+    color: #fff;
+    overflow-x: hidden;
+  }
+  
+  /* Header */
+  .header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .header .logo {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 18px;
+    border-radius: 10px;
+    backdrop-filter: blur(4px);            /* modern blur effect for glassmorphism */
+    transition: all 0.3s ease;
+  }
+  
+  .header .logo:hover {
+    transform: translateY(-2px);  /* slight lift on hover for modern feedback */
+  }
+  
+  .header .logo img {
+    width: 40px;                 /* or adjust based on your image */
+    height: 40px;
+    margin-right: 0.6rem;
+    object-fit: contain;
+  }  
+  
+  .header nav ul {
+    list-style: none;
+    display: flex;
+  }
+  
+  .header nav ul li {
+    margin-left: 1.5rem;
+  }
+  
+  .header nav ul li a {
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s;
+  }
+  
+  .header nav ul li a:hover {
+    color: #c47f00;
+  }
+  
+  /* SplitScreen Section */
+  .split-screen {
+    display: flex;
+    height: 100vh;
+    position: relative;
+    transition: box-shadow 0.3s ease;  /* Optional: smooth shadow transition */
+  }
+  
+  .split-screen .left,
+  .split-screen .right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 12px;  /* Rounded corners for a modern touch */
+  }
+  
+  .split-screen .left {
+    background: url('../public/assets/images/left-bg.jpg') center/cover no-repeat;
+  }
+  
+  .split-screen .right {
+    background: url('../public/assets/images/right-bg.jpg') center/cover no-repeat;
+  }
+  
+  /* Overlay and Hover Effects */
+  .split-screen .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0.5;
+    transition: opacity 0.5s;
+    mix-blend-mode: multiply; /* Blending effect */
+  }
+  
+  .split-screen .left:hover .overlay,
+  .split-screen .right:hover .overlay {
+    opacity: 1;
+  }
+  
+  .split-screen .content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: rgba(0, 0, 0, 0.4);   /* dark overlay for text */
+    border-radius: 8px;
+    backdrop-filter: blur(2px);       /* softens background behind text */
+  }
+  
+  .split-screen .content h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);  /* sharp text contrast */
+  }
+  
+  .split-screen .content p {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);  /* same for subtext */
+  }
+
+  .split-screen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+    z-index: 1;
+  }
+
+  /* Add a soft shadow effect for separation */
+.split-screen {
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Light shadow effect */
+}
+
+/* Optional: Add a shadow transition on hover for the split-screen */
+.split-screen:hover {
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+  
+  /* About Section */
+  .about {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: #212121;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);  /* Soft drop shadow for depth */
+    border-radius: 8px;  /* Optional: rounded corners for a softer look */
+    margin-top: -10px;  /* Optional: slight overlap with previous section */
+  }
+  
+  .about:hover {
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.4);  /* Slightly stronger shadow on hover */
+  }
+  
+  .about h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .journey-button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 1.5rem;
+    border: 2px solid #ffa500;
+    color: #ffa500;
+    background: transparent;
+    border-radius: 8px;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .journey-button:hover {
+    background: #ffa500;
+    color: #000;
+  }
+
+  .journey {
+    padding: 5rem 2rem;
+    text-align: center;
+    background: #111;
+  }
+  
+  .journey h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .journey p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 1rem 2rem;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.8);
+    color: #000; /* Added: footer text color */
+    font-size: 0.9rem;
+  }
+  
+  .split-screen .left,
+.split-screen .right {
+  width: 51%;
+  transition: width 0.5s ease;
+}
+
+.split-screen .left:hover {
+  width: 70%;
+}
+
+.split-screen .right:hover {
+  width: 70%;
+}
