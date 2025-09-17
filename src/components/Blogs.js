@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import './styles/Blogs.css';
 
 const blogs = [
-  { title: 'Blog 1', description: 'Yet to add', link: 'https://yourblog.com/blog1', image: 'path-to-image/blog1.jpg' },
+  { title: 'Beyond Text Generation: The Crucial Role of Post-Processing in LLM Outputs for Business and Visual Impact', description: 'Generating text with large language models is only the beginning. Discover why post-processing is the key to transforming raw AI output into polished, impactful content for business presentations and end-user visual.', link: 'https://medium.com/@ashish1997sarangpur/beyond-text-generation-the-crucial-role-of-post-processing-in-llm-outputs-for-business-and-visual-9343134f2d9b', image: `${process.env.PUBLIC_URL}`+'assets/images/blogs/blog-1.png'},
 ];
 
 const Blogs = () => {
