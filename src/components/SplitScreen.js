@@ -11,7 +11,7 @@ const SplitScreen = () => {
           <p>Gen AI</p>
         </div>
       </div>
-      <div className="right" onClick={() => window.location.href = "/portfolio"}>
+      <div className="right" onClick={() => window.location.href = `${process.env.PUBLIC_URL}`+"/portfolio"}>
         <div className="overlay"></div>
         <div className="content">
           <motion.h2 whileHover={{ scale: 1.1 }}>Tinkerings</motion.h2>
