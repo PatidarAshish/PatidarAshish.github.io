@@ -28,23 +28,25 @@ function ScrollToSection() {
 
 function App() {
   return (
-    <Router>
+    <Router basename={process.env.PUBLIC_URL}>
       <div className="App">
         <Header />
         <motion.main initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}>
-          <ScrollToSection /> {/* Smooth scroll handler */}
+          <ScrollToSection />
 
           <Switch>
-            {/* Default route: Redirect / to /home */}
+            {/* Redirect root to /home */}
             <Route exact path="/">
               <Redirect to="/home" />
             </Route>
 
+            {/* Home page */}
             <Route exact path="/home">
               <SplitScreen />
               <About />
             </Route>
 
+            {/* Other pages */}
             <Route path="/journey" component={Journey} />
             <Route path="/contact" component={Contact} />
             <Route path="/portfolio" component={Portfolio} />
